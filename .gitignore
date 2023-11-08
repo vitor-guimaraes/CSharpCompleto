@@ -3,3 +3,9 @@
 ################################################################################
 
 /obj/Debug/net5.0
+/obj
+/bin/Debug/net5.0
+/.vs/ProjectEvaluation
+/.vs/CSharpCompleto/v17
+/.vs/CSharpCompleto/FileContentIndex
+/.vs/CSharpCompleto/DesignTimeBuild
