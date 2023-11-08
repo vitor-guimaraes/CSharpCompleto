@@ -1,33 +1,113 @@
 ﻿using System;
 
+
 namespace CSharpCompleto
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
-            int idadeP1;
-            int idadeP2;
-            string nomeP1;
-            string nomeP2;
-            
-            Console.WriteLine("Digite nome e idade:");
-            nomeP1 = Console.ReadLine();
-            idadeP1 = int.Parse(Console.ReadLine());
+            #region exStatic
+            Console.WriteLine("Cotação do dolar: ");
+            double cotDolar = double.Parse(Console.ReadLine());
+            Console.WriteLine("Quantidade de dolares: ");
+            double dolares = double.Parse(Console.ReadLine());
 
-            Console.WriteLine("Digite nome e idade:");
-            nomeP2 = Console.ReadLine();
-            idadeP2 = int.Parse(Console.ReadLine());
+            Console.WriteLine(ConversorDeMoeda.Conversao(cotDolar, dolares));
+            #endregion
 
-            if (idadeP1 > idadeP2)
-            {
-                Console.WriteLine(nomeP1 + " é o mais velho");
-            }
-            else
-            {
-                Console.WriteLine(nomeP2 + "é o mais velho");
-            }
-            //commit
+            #region ex3
+            //Aluno aluno = new Aluno();
+            //double n1;
+            //double n2;
+            //double n3;
+
+            //Console.WriteLine("Nome: ");
+            //aluno.Nome = Console.ReadLine();
+
+            //Console.WriteLine("Digite as tres notas: ");
+            //n1 = double.Parse(Console.ReadLine());
+            //n2 = double.Parse(Console.ReadLine());
+            //n3 = double.Parse(Console.ReadLine());
+
+            //aluno.NotaFinal(n1, n2, n3);
+
+            //aluno.Aprovacao();
+            #endregion
+
+            #region ex2
+            //Funcionario funcionario = new Funcionario();
+
+            //string nome = funcionario.Nome;
+            //double salarioBruto = funcionario.SalarioBruto;
+            //double imposto = funcionario.Imposto;
+            //double salarioLiquido;
+            //double aumento;
+
+            //Console.WriteLine("Nome: ");
+            //funcionario.Nome = Console.ReadLine();
+            //Console.WriteLine("Salario Bruto: ");
+            //funcionario.SalarioBruto = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Imposto: ");
+            //funcionario.Imposto = double.Parse(Console.ReadLine());
+
+            //salarioLiquido = funcionario.SalarioLiquido();
+
+            //Console.WriteLine("Funcionario {0}, Salario: {1}", nome, salarioLiquido);
+
+            //Console.WriteLine("Digite o aumento em %: ");
+            //aumento = double.Parse(Console.ReadLine());
+            //funcionario.AumentarSalario(aumento);
+
+            //Console.WriteLine("Funcionario {0}, Salario: {1}", nome, funcionario.SalarioBruto);
+            #endregion
+
+            #region ex1
+            //Retangulo retangulo = new Retangulo();
+            //double area;
+            //double perimetro;
+            //double diagonal;
+
+            //Console.WriteLine("Digite a largura do retangulo: ");
+            //retangulo.Largura = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Digite a altura do retangulo: ");
+            //retangulo.Altura = double.Parse(Console.ReadLine());
+
+            //area = retangulo.Area();
+            //Console.WriteLine("Area: " + area);
+
+            //perimetro = retangulo.Perimetro();
+            //Console.WriteLine("Perimetro: " + perimetro);
+
+            //diagonal = retangulo.Diagonal();
+            //Console.WriteLine("Diagonal: " + diagonal);
+            #endregion
+
+
+            #region prog1
+            //Pessoa A, B;
+            //A = new Pessoa();
+            //B = new Pessoa();
+
+            //Console.WriteLine("Qual o seu nome");
+            //A.Nome = Console.ReadLine();
+            //Console.WriteLine("Qual a sua idade");
+            //A.Idade = int.Parse(Console.ReadLine());
+
+            //Console.WriteLine("Qual o seu nome");
+            //B.Nome = Console.ReadLine();
+            //Console.WriteLine("Qual a sua idade");
+            //B.Idade = int.Parse(Console.ReadLine());
+
+            //if (A.Idade > B.Idade)
+            //{
+            //    Console.WriteLine(A.Nome + " é o mais velho");
+            //}
+            //else
+            //{
+            //    Console.WriteLine(B.Nome + " é o mais velho");
+            //}
+            #endregion
         }
     }
 }
