@@ -8,9 +8,19 @@ namespace CSharpCompleto
 {
     public class Conta
     {
+        public Conta(string numeroConta, string nome, double saldo)
+        {
+            NumeroConta = numeroConta;
+            Nome = nome;
+            Saldo = saldo;
+        }
+
+        public Conta()
+        {
+        }
+
         public string NumeroConta { get; private set; }
         public string Nome { get; set; }
-        public double DepositoInicial { get; private set; }
         public double Saldo { get; private set; }
 
         public string SetNumeroConta()
@@ -28,15 +38,6 @@ namespace CSharpCompleto
             return Nome;
         }
 
-        public double SetDepositoInicial()
-        {
-            Console.WriteLine("Digite o valor do depósito inicial: ");
-            double deposito = double.Parse(Console.ReadLine());
-            DepositoInicial = deposito;
-            Saldo += DepositoInicial;
-            GetSaldo();
-            return DepositoInicial;
-        }
 
         public double GetSaldo()
         {

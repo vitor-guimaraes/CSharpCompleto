@@ -19,7 +19,7 @@ namespace CSharpCompleto
 
             if (x == 's')
             {
-                conta.SetDepositoInicial();
+                conta.Deposito();
             }
 
             conta.Deposito();
