@@ -7,13 +7,34 @@ namespace CSharpCompleto
     {
         static void Main(string[] args)
         {
-            #region exStatic
-            Console.WriteLine("Cotação do dolar: ");
-            double cotDolar = double.Parse(Console.ReadLine());
-            Console.WriteLine("Quantidade de dolares: ");
-            double dolares = double.Parse(Console.ReadLine());
 
-            Console.WriteLine(ConversorDeMoeda.Conversao(cotDolar, dolares));
+            #region exProps
+            Conta conta = new Conta();
+
+            conta.SetNumeroConta();
+            conta.SetNome();
+
+            Console.WriteLine("Depósito inicial? s/n ");
+            char x = char.Parse(Console.ReadLine());
+
+            if (x == 's')
+            {
+                conta.SetDepositoInicial();
+            }
+
+            conta.Deposito();
+            conta.Saque();
+
+
+        #endregion
+
+        #region exStatic
+        //Console.WriteLine("Cotação do dolar: ");
+        //    double cotDolar = double.Parse(Console.ReadLine());
+        //    Console.WriteLine("Quantidade de dolares: ");
+        //    double dolares = double.Parse(Console.ReadLine());
+
+        //    Console.WriteLine(ConversorDeMoeda.Conversao(cotDolar, dolares));
             #endregion
 
             #region ex3
