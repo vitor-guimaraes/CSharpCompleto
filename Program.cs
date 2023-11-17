@@ -7,34 +7,37 @@ namespace CSharpCompleto
     {
         static void Main(string[] args)
         {
+            #region exVetores
+            Pensao pensao = new Pensao();
+
+            pensao.MontaVetor();
+            #endregion
 
             #region exProps
-            Conta conta = new Conta();
+            //Conta conta = new Conta();
 
-            conta.SetNumeroConta();
-            conta.SetNome();
+            //conta.SetNumeroConta();
+            //conta.SetNome();
 
-            Console.WriteLine("Depósito inicial? s/n ");
-            char x = char.Parse(Console.ReadLine());
+            //Console.WriteLine("Depósito inicial? s/n ");
+            //char x = char.Parse(Console.ReadLine());
 
-            if (x == 's')
-            {
-                conta.Deposito();
-            }
+            //if (x == 's')
+            //{
+            //    conta.Deposito();
+            //}
 
-            conta.Deposito();
-            conta.Saque();
+            //conta.Deposito();
+            //conta.Saque();
+            #endregion
 
+            #region exStatic
+            //Console.WriteLine("Cotação do dolar: ");
+            //    double cotDolar = double.Parse(Console.ReadLine());
+            //    Console.WriteLine("Quantidade de dolares: ");
+            //    double dolares = double.Parse(Console.ReadLine());
 
-        #endregion
-
-        #region exStatic
-        //Console.WriteLine("Cotação do dolar: ");
-        //    double cotDolar = double.Parse(Console.ReadLine());
-        //    Console.WriteLine("Quantidade de dolares: ");
-        //    double dolares = double.Parse(Console.ReadLine());
-
-        //    Console.WriteLine(ConversorDeMoeda.Conversao(cotDolar, dolares));
+            //    Console.WriteLine(ConversorDeMoeda.Conversao(cotDolar, dolares));
             #endregion
 
             #region ex3
@@ -103,7 +106,6 @@ namespace CSharpCompleto
             //diagonal = retangulo.Diagonal();
             //Console.WriteLine("Diagonal: " + diagonal);
             #endregion
-
 
             #region prog1
             //Pessoa A, B;
