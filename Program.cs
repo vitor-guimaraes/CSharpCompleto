@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Collections.Generic;
 
 namespace CSharpCompleto
 {
@@ -7,10 +7,67 @@ namespace CSharpCompleto
     {
         static void Main(string[] args)
         {
-            #region exVetores
-            Pensao pensao = new Pensao();
+            #region exListas
 
-            pensao.MontaVetor();
+            Console.WriteLine("Digite o número de empregados: ");
+            int n = int.Parse(Console.ReadLine());
+
+            List <Empregado> empregados = new List<Empregado>();
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Empregado #" + (i+1) + ":");
+
+                Console.WriteLine("Digite o Id: ");
+                int id = int.Parse(Console.ReadLine());    
+                
+                Console.WriteLine("Digite o Nome: ");
+                string nome = Console.ReadLine();
+                
+                Console.WriteLine("Digite o Salário: ");
+                double salario = double.Parse(Console.ReadLine());
+
+                Empregado empregado = new Empregado(id, nome, salario);
+
+                empregados.Add(empregado);
+            }
+
+            foreach (Empregado empregado in empregados)
+            {                
+                Console.Write("Id: " + empregado.Id + ", ");
+                Console.Write("Nome: " + empregado.Nome + ", ");
+                Console.Write("Salario: " + empregado.Salario);
+                Console.WriteLine(" ");
+            }
+
+            Console.Write("Digite o Id do empregado que receberá aumento: ");
+            int procuraId = int.Parse(Console.ReadLine());
+
+            Empregado emp = empregados.Find(x => x.Id == procuraId);
+            if (emp != null)
+            {
+                Console.Write("Enter the percentage: ");
+                double porcentagem = double.Parse(Console.ReadLine());
+                emp.AumentoSalario(porcentagem);
+            }
+            else
+            {
+                Console.WriteLine("Id inválido");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Lista atualizada de empregados:");
+            foreach (Empregado obj in empregados)
+            {
+                Console.WriteLine(obj.Id + " " + obj.Nome + " " + obj.Salario);
+            }
+
+            #endregion
+
+            #region exVetores
+            //Pensao pensao = new Pensao();
+
+            //pensao.MontaVetor();
             #endregion
 
             #region exProps
