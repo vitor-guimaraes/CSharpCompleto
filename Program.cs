@@ -7,60 +7,70 @@ namespace CSharpCompleto
     {
         static void Main(string[] args)
         {
+            #region exMatrizes
+            Matriz matriz = new Matriz();
+
+            //matriz.MontaMatriz();
+
+            matriz.MatrizEx();
+
+
+            #endregion
+
             #region exListas
 
-            Console.WriteLine("Digite o número de empregados: ");
-            int n = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Digite o número de empregados: ");
+            //int n = int.Parse(Console.ReadLine());
 
-            List <Empregado> empregados = new List<Empregado>();
+            //List <Empregado> empregados = new List<Empregado>();
 
-            for (int i = 0; i < n; i++)
-            {
-                Console.WriteLine("Empregado #" + (i+1) + ":");
+            //for (int i = 0; i < n; i++)
+            //{
+            //    Console.WriteLine("Empregado #" + (i+1) + ":");
 
-                Console.WriteLine("Digite o Id: ");
-                int id = int.Parse(Console.ReadLine());    
-                
-                Console.WriteLine("Digite o Nome: ");
-                string nome = Console.ReadLine();
-                
-                Console.WriteLine("Digite o Salário: ");
-                double salario = double.Parse(Console.ReadLine());
+            //    Console.WriteLine("Digite o Id: ");
+            //    int id = int.Parse(Console.ReadLine());    
 
-                Empregado empregado = new Empregado(id, nome, salario);
+            //    Console.WriteLine("Digite o Nome: ");
+            //    string nome = Console.ReadLine();
 
-                empregados.Add(empregado);
-            }
+            //    Console.WriteLine("Digite o Salário: ");
+            //    double salario = double.Parse(Console.ReadLine());
 
-            foreach (Empregado empregado in empregados)
-            {                
-                Console.Write("Id: " + empregado.Id + ", ");
-                Console.Write("Nome: " + empregado.Nome + ", ");
-                Console.Write("Salario: " + empregado.Salario);
-                Console.WriteLine(" ");
-            }
+            //    Empregado empregado = new Empregado(id, nome, salario);
 
-            Console.Write("Digite o Id do empregado que receberá aumento: ");
-            int procuraId = int.Parse(Console.ReadLine());
+            //    empregados.Add(empregado);
+            //}
 
-            Empregado emp = empregados.Find(x => x.Id == procuraId);
-            if (emp != null)
-            {
-                Console.Write("Enter the percentage: ");
-                double porcentagem = double.Parse(Console.ReadLine());
-                emp.AumentoSalario(porcentagem);
-            }
-            else
-            {
-                Console.WriteLine("Id inválido");
-            }
+            //foreach (Empregado empregado in empregados)
+            //{                
+            //    Console.Write("Id: " + empregado.Id + ", ");
+            //    Console.Write("Nome: " + empregado.Nome + ", ");
+            //    Console.Write("Salario: " + empregado.Salario);
+            //    Console.WriteLine(" ");
+            //}
 
-            Console.WriteLine();
-            Console.WriteLine("Lista atualizada de empregados:");
-            foreach (Empregado obj in empregados)
-            {
-                Console.WriteLine(obj.Id + " " + obj.Nome + " " + obj.Salario);
-            }
+            //Console.Write("Digite o Id do empregado que receberá aumento: ");
+            //int procuraId = int.Parse(Console.ReadLine());
+
+            //Empregado emp = empregados.Find(x => x.Id == procuraId);
+            //if (emp != null)
+            //{
+            //    Console.Write("Enter the percentage: ");
+            //    double porcentagem = double.Parse(Console.ReadLine());
+            //    emp.AumentoSalario(porcentagem);
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Id inválido");
+            //}
+
+            //Console.WriteLine();
+            //Console.WriteLine("Lista atualizada de empregados:");
+            //foreach (Empregado obj in empregados)
+            //{
+            //    Console.WriteLine(obj.Id + " " + obj.Nome + " " + obj.Salario);
+            //}
 
             #endregion
 
