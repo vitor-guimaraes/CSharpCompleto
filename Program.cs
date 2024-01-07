@@ -13,48 +13,75 @@ namespace CSharpCompleto
         static void Main(string[] args)
         {
 
+            #region ex2Enum
 
-            Console.WriteLine("Enter employee data - Name, Level and Base Salary: ");
+            Comment comment1 = new Comment("Comment 1");
+            Comment comment2 = new Comment("Comment 2");
 
-            Worker worker = new Worker()
-            {
-                Name = Console.ReadLine(),
-                Level = (WorkerLevel)int.Parse(Console.ReadLine()),
-                BaseSalary = double.Parse(Console.ReadLine())
-            };
+            Post Post1 = new Post(
+                                DateTime.Now, 
+                                "Post Title", 
+                                "Post Content", 
+                                666);
 
-            Console.WriteLine(worker.Name + " " + worker.Level + " " + worker.BaseSalary);
+            Post1.AddComment(comment1);
+            Post1.AddComment(comment2);
 
-            Console.WriteLine("How many contracts does he have? ");
+            //Console.WriteLine(Post1.Title);
+            //Console.WriteLine();
+            //Console.WriteLine(Post1.Likes + " - " + Post1.Moment);
+            //Console.WriteLine();
+            //Console.WriteLine("Comments:");
+            //Console.WriteLine(Post1.Comments);
+            
+            Console.WriteLine(Post1);
 
-            int n = int.Parse(Console.ReadLine());
 
-            for (int i = 0; i <= n; i++)
-            {
-                Console.WriteLine($"Enter #{i} contract data:");
+            #endregion
 
-                Console.Write("Date (DD/MM/YYYY): ");
-                DateTime date = DateTime.Parse(Console.ReadLine());
+            #region ex1Enum
+            //Console.WriteLine("Enter employee data - Name, Level and Base Salary: ");
 
-                Console.Write("Value per hour: ");
-                double valuePerHour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            //Worker worker = new Worker()
+            //{
+            //    Name = Console.ReadLine(),
+            //    Level = (WorkerLevel)int.Parse(Console.ReadLine()),
+            //    BaseSalary = double.Parse(Console.ReadLine())
+            //};
 
-                Console.Write("Duration (hours): ");
-                int hours = int.Parse(Console.ReadLine());
+            //Console.WriteLine(worker.Name + " " + worker.Level + " " + worker.BaseSalary);
 
-                HourContract contract = new HourContract(date, valuePerHour, hours);
-                worker.AddContract(contract);
-            }
+            //Console.WriteLine("How many contracts does he have? ");
 
-            Console.WriteLine();
+            //int n = int.Parse(Console.ReadLine());
 
-            Console.Write("Enter month and year to calculate income (MM/YYYY): ");
-            string monthAndYear = Console.ReadLine();
-            int month = int.Parse(monthAndYear.Substring(0, 2));
-            int year = int.Parse(monthAndYear.Substring(3));
+            //for (int i = 0; i <= n; i++)
+            //{
+            //    Console.WriteLine($"Enter #{i} contract data:");
 
-            Console.WriteLine("Name : " + worker.Name);
-            Console.WriteLine("Income for " + monthAndYear + ": " + worker.Income(year, month).ToString("F2", CultureInfo.InvariantCulture));
+            //    Console.Write("Date (DD/MM/YYYY): ");
+            //    DateTime date = DateTime.Parse(Console.ReadLine());
+
+            //    Console.Write("Value per hour: ");
+            //    double valuePerHour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            //    Console.Write("Duration (hours): ");
+            //    int hours = int.Parse(Console.ReadLine());
+
+            //    HourContract contract = new HourContract(date, valuePerHour, hours);
+            //    worker.AddContract(contract);
+            //}
+
+            //Console.WriteLine();
+
+            //Console.Write("Enter month and year to calculate income (MM/YYYY): ");
+            //string monthAndYear = Console.ReadLine();
+            //int month = int.Parse(monthAndYear.Substring(0, 2));
+            //int year = int.Parse(monthAndYear.Substring(3));
+
+            //Console.WriteLine("Name : " + worker.Name);
+            //Console.WriteLine("Income for " + monthAndYear + ": " + worker.Income(year, month).ToString("F2", CultureInfo.InvariantCulture));
+            #endregion
 
 
             #region EnumIntro
