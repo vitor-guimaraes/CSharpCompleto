@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpCompleto
+namespace CSharpCompleto.Intro
 {
     public class Funcionario
     {
@@ -20,7 +20,7 @@ namespace CSharpCompleto
 
         public void AumentarSalario(double porcentagem)
         {
-            SalarioBruto = SalarioBruto + (SalarioBruto * porcentagem / 100.0);           
+            SalarioBruto = SalarioBruto + SalarioBruto * porcentagem / 100.0;
         }
     }
 }

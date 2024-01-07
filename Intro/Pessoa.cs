@@ -1,4 +1,4 @@
-﻿namespace CSharpCompleto
+﻿namespace CSharpCompleto.Intro
 {
     public class Pessoa
     {

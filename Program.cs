@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using CSharpCompleto.Entities;
+using CSharpCompleto.Entities.Enums;
+using CSharpCompleto.Intro;
 
 namespace CSharpCompleto
 {
@@ -7,12 +10,30 @@ namespace CSharpCompleto
     {
         static void Main(string[] args)
         {
+            Order order = new Order
+            {
+                Id = 1080,
+                Moment = DateTime.Now,
+                Status = OrderStatus.PendingPayment
+            };
+
+            Console.WriteLine(order);
+
+            string txt = OrderStatus.PendingPayment.ToString();
+            Console.WriteLine(txt);
+
+            OrderStatus os = Enum.Parse<OrderStatus>("Delivered");
+            Console.WriteLine(os);
+
+            ///////////////
+            #region Intro
+
             #region exMatrizes
-            Matriz matriz = new Matriz();
+            //Matriz matriz = new Matriz();
 
             //matriz.MontaMatriz();
 
-            matriz.MatrizEx();
+            //matriz.MatrizEx();
 
 
             #endregion
@@ -197,6 +218,8 @@ namespace CSharpCompleto
             //{
             //    Console.WriteLine(B.Nome + " é o mais velho");
             //}
+            #endregion
+
             #endregion
         }
     }

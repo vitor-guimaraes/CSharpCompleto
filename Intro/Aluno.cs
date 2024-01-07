@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpCompleto
+namespace CSharpCompleto.Intro
 {
     public class Aluno
     {
@@ -13,7 +13,7 @@ namespace CSharpCompleto
 
         public double NotaFinal(double n1, double n2, double n3)
         {
-            Nota = (n1 + n2 + n3) ;
+            Nota = n1 + n2 + n3;
             return Nota;
         }
 
