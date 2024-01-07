@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.Globalization;
 using CSharpCompleto.Entities;
 using CSharpCompleto.Entities.Enums;
 using CSharpCompleto.Intro;
@@ -10,20 +12,67 @@ namespace CSharpCompleto
     {
         static void Main(string[] args)
         {
-            Order order = new Order
+
+
+            Console.WriteLine("Enter employee data - Name, Level and Base Salary: ");
+
+            Worker worker = new Worker()
             {
-                Id = 1080,
-                Moment = DateTime.Now,
-                Status = OrderStatus.PendingPayment
+                Name = Console.ReadLine(),
+                Level = (WorkerLevel)int.Parse(Console.ReadLine()),
+                BaseSalary = double.Parse(Console.ReadLine())
             };
 
-            Console.WriteLine(order);
+            Console.WriteLine(worker.Name + " " + worker.Level + " " + worker.BaseSalary);
 
-            string txt = OrderStatus.PendingPayment.ToString();
-            Console.WriteLine(txt);
+            Console.WriteLine("How many contracts does he have? ");
 
-            OrderStatus os = Enum.Parse<OrderStatus>("Delivered");
-            Console.WriteLine(os);
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i <= n; i++)
+            {
+                Console.WriteLine($"Enter #{i} contract data:");
+
+                Console.Write("Date (DD/MM/YYYY): ");
+                DateTime date = DateTime.Parse(Console.ReadLine());
+
+                Console.Write("Value per hour: ");
+                double valuePerHour = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                Console.Write("Duration (hours): ");
+                int hours = int.Parse(Console.ReadLine());
+
+                HourContract contract = new HourContract(date, valuePerHour, hours);
+                worker.AddContract(contract);
+            }
+
+            Console.WriteLine();
+
+            Console.Write("Enter month and year to calculate income (MM/YYYY): ");
+            string monthAndYear = Console.ReadLine();
+            int month = int.Parse(monthAndYear.Substring(0, 2));
+            int year = int.Parse(monthAndYear.Substring(3));
+
+            Console.WriteLine("Name : " + worker.Name);
+            Console.WriteLine("Income for " + monthAndYear + ": " + worker.Income(year, month).ToString("F2", CultureInfo.InvariantCulture));
+
+
+            #region EnumIntro
+            //Order order = new Order
+            //{
+            //    Id = 1080,
+            //    Moment = DateTime.Now,
+            //    Status = OrderStatus.PendingPayment
+            //};
+
+            //Console.WriteLine(order);
+
+            //string txt = OrderStatus.PendingPayment.ToString();
+            //Console.WriteLine(txt);
+
+            //OrderStatus os = Enum.Parse<OrderStatus>("Delivered");
+            //Console.WriteLine(os);
+            #endregion
 
             ///////////////
             #region Intro
