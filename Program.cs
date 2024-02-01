@@ -13,29 +13,68 @@ namespace CSharpCompleto
         static void Main(string[] args)
         {
 
+            #region ex3Enum
+
+            ClientEx3 client = new ClientEx3()
+            {
+                Name = "Testa",
+                Email = "TESTAMAIL.COM",
+                Birthdate = DateTime.Now
+            };
+
+            OrderEx3 order = new OrderEx3()
+            {
+                Moment = DateTime.Now,
+                Status = (OrderStatusEx3)2
+            };
+
+            List<OrderItemEx3> items = new List<OrderItemEx3>();
+
+            OrderItemEx3 item = new OrderItemEx3()
+            {
+                Quantity = 2,
+                Price = 5
+            };
+
+            items.Add(item);
+
+            foreach (var OrderItemEx3 in items)
+            {
+                order.AddItem(item);
+            }
+
+            Console.WriteLine(order.Moment);
+            Console.WriteLine(order.Status);
+            Console.WriteLine(client.Name);
+            Console.WriteLine(items.ToString());
+            Console.WriteLine(item.SubTotal());
+            Console.WriteLine(order.Total());
+
+
+            #endregion
+
             #region ex2Enum
 
-            Comment comment1 = new Comment("Comment 1");
-            Comment comment2 = new Comment("Comment 2");
+            //Comment comment1 = new Comment("Comment 1");
+            //Comment comment2 = new Comment("Comment 2");
 
-            Post Post1 = new Post(
-                                DateTime.Now, 
-                                "Post Title", 
-                                "Post Content", 
-                                666);
+            //Post Post1 = new Post(
+            //                    DateTime.Now, 
+            //                    "Post Title", 
+            //                    "Post Content", 
+            //                    666);
 
-            Post1.AddComment(comment1);
-            Post1.AddComment(comment2);
+            //Post1.AddComment(comment1);
+            //Post1.AddComment(comment2);
 
-            //Console.WriteLine(Post1.Title);
-            //Console.WriteLine();
-            //Console.WriteLine(Post1.Likes + " - " + Post1.Moment);
-            //Console.WriteLine();
-            //Console.WriteLine("Comments:");
-            //Console.WriteLine(Post1.Comments);
+            ////Console.WriteLine(Post1.Title);
+            ////Console.WriteLine();
+            ////Console.WriteLine(Post1.Likes + " - " + Post1.Moment);
+            ////Console.WriteLine();
+            ////Console.WriteLine("Comments:");
+            ////Console.WriteLine(Post1.Comments);
             
-            Console.WriteLine(Post1);
-
+            //Console.WriteLine(Post1);
 
             #endregion
 
@@ -82,7 +121,6 @@ namespace CSharpCompleto
             //Console.WriteLine("Name : " + worker.Name);
             //Console.WriteLine("Income for " + monthAndYear + ": " + worker.Income(year, month).ToString("F2", CultureInfo.InvariantCulture));
             #endregion
-
 
             #region EnumIntro
             //Order order = new Order
