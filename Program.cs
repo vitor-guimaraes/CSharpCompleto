@@ -13,54 +13,79 @@ namespace CSharpCompleto
         static void Main(string[] args)
         {
             #region Polimorfismo
-            Employee employee1 = new Employee()
+
+            #region Ex2Polimorfismo
+
+            Product product1 = new ImportedProduct("Tablet", 260.00, 20.00);
+            Product product2 = new Product("Notebook", 110.00);
+            Product product3 = new UsedProduct("Iphone", 400.00, DateTime.Now);
+
+            List<Product> products = new List<Product>();
+
+            products.Add(product1);
+            products.Add(product2);
+            products.Add(product3);
+
+            foreach (Product p in products)
             {
-                Name = "Carlão",
-                Hours = 3,
-                valuePerHour = 10
-            };
-
-            Employee employee2 = new OutsourcedEmployee()
-            {
-                Name = "Motoca",
-                Hours = 5,
-                valuePerHour = 8,
-            };
-
-
-            Console.WriteLine("Digite o nome do empregado");
-            string name = Console.ReadLine();
-            Console.WriteLine("Digite o número de horas trabalhadas do empregado");
-            int hours = int.Parse(Console.ReadLine());
-            Console.WriteLine("Digite o salário do empregado");
-            double value = double.Parse(Console.ReadLine());
-            Console.WriteLine("CLT (C)/PJ (P)?");
-            char contrato = char.Parse(Console.ReadLine());
-
-            List<Employee> employeeList = new List<Employee>();
-            employeeList.Add(employee1);
-            employeeList.Add(employee2);
-
-            if (contrato == 'P')
-            {
-                Console.WriteLine("Digite o o gasto adicional do empregado");
-                double additionalValue = double.Parse(Console.ReadLine());
-                Employee employee3 = new OutsourcedEmployee(name, hours, value, additionalValue);
-                employeeList.Add(employee3);
-            }
-            else
-            {
-                Employee employee3 = new Employee(name, hours, value);
-                employeeList.Add(employee3);
+                Console.WriteLine(p.PriceTag());
             }
 
+            #endregion
 
-            foreach (var employee in employeeList)
-            {
-                Console.WriteLine(employee.Name);
-                Console.WriteLine(employee.Hours);
-                Console.WriteLine(employee.Payment());
-            }
+            #region Ex1Polimorfismo
+
+            //Employee employee1 = new Employee()
+            //{
+            //    Name = "Carlão",
+            //    Hours = 3,
+            //    valuePerHour = 10
+            //};
+
+            //Employee employee2 = new OutsourcedEmployee()
+            //{
+            //    Name = "Motoca",
+            //    Hours = 5,
+            //    valuePerHour = 8,
+            //};
+
+
+            //Console.WriteLine("Digite o nome do empregado");
+            //string name = Console.ReadLine();
+            //Console.WriteLine("Digite o número de horas trabalhadas do empregado");
+            //int hours = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Digite o salário do empregado");
+            //double value = double.Parse(Console.ReadLine());
+            //Console.WriteLine("CLT (C)/PJ (P)?");
+            //char contrato = char.Parse(Console.ReadLine());
+
+            //List<Employee> employeeList = new List<Employee>();
+            //employeeList.Add(employee1);
+            //employeeList.Add(employee2);
+
+            //if (contrato == 'P')
+            //{
+            //    Console.WriteLine("Digite o o gasto adicional do empregado");
+            //    double additionalValue = double.Parse(Console.ReadLine());
+            //    Employee employee3 = new OutsourcedEmployee(name, hours, value, additionalValue);
+            //    employeeList.Add(employee3);
+            //}
+            //else
+            //{
+            //    Employee employee3 = new Employee(name, hours, value);
+            //    employeeList.Add(employee3);
+            //}
+
+
+            //foreach (var employee in employeeList)
+            //{
+            //    Console.WriteLine(employee.Name);
+            //    Console.WriteLine(employee.Hours);
+            //    Console.WriteLine(employee.Payment());
+            //}
+
+            #endregion
+
 
             #endregion
 
