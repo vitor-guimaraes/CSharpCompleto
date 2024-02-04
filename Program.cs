@@ -12,30 +12,124 @@ namespace CSharpCompleto
     {
         static void Main(string[] args)
         {
+            #region Polimorfismo
+            Employee employee1 = new Employee()
+            {
+                Name = "Carlão",
+                Hours = 3,
+                valuePerHour = 10
+            };
+
+            Employee employee2 = new OutsourcedEmployee()
+            {
+                Name = "Motoca",
+                Hours = 5,
+                valuePerHour = 8,
+            };
+
+
+            Console.WriteLine("Digite o nome do empregado");
+            string name = Console.ReadLine();
+            Console.WriteLine("Digite o número de horas trabalhadas do empregado");
+            int hours = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o salário do empregado");
+            double value = double.Parse(Console.ReadLine());
+            Console.WriteLine("CLT (C)/PJ (P)?");
+            char contrato = char.Parse(Console.ReadLine());
+
+            List<Employee> employeeList = new List<Employee>();
+            employeeList.Add(employee1);
+            employeeList.Add(employee2);
+
+            if (contrato == 'P')
+            {
+                Console.WriteLine("Digite o o gasto adicional do empregado");
+                double additionalValue = double.Parse(Console.ReadLine());
+                Employee employee3 = new OutsourcedEmployee(name, hours, value, additionalValue);
+                employeeList.Add(employee3);
+            }
+            else
+            {
+                Employee employee3 = new Employee(name, hours, value);
+                employeeList.Add(employee3);
+            }
+
+
+            foreach (var employee in employeeList)
+            {
+                Console.WriteLine(employee.Name);
+                Console.WriteLine(employee.Hours);
+                Console.WriteLine(employee.Payment());
+            }
+
+            #endregion
+
+
+            ///////////////
+            #region Enum
+
+            #region ex3Enum
+
+            //ClientEx3 client = new ClientEx3()
+            //{
+            //    Name = "Testa",
+            //    Email = "TESTAMAIL.COM",
+            //    Birthdate = DateTime.Now
+            //};
+
+            //OrderEx3 order = new OrderEx3()
+            //{
+            //    Moment = DateTime.Now,
+            //    Status = (OrderStatusEx3)2
+            //};
+
+            //List<OrderItemEx3> items = new List<OrderItemEx3>();
+
+            //OrderItemEx3 item = new OrderItemEx3()
+            //{
+            //    Quantity = 2,
+            //    Price = 5
+            //};
+
+            //items.Add(item);
+
+            //foreach (var OrderItemEx3 in items)
+            //{
+            //    order.AddItem(item);
+            //}
+
+            //Console.WriteLine(order.Moment);
+            //Console.WriteLine(order.Status);
+            //Console.WriteLine(client.Name);
+            //Console.WriteLine(items.ToString());
+            //Console.WriteLine(item.SubTotal());
+            //Console.WriteLine(order.Total());
+
+
+            #endregion
 
             #region ex2Enum
 
-            Comment comment1 = new Comment("Comment 1");
-            Comment comment2 = new Comment("Comment 2");
+            //Comment comment1 = new Comment("Comment 1");
+            //Comment comment2 = new Comment("Comment 2");
 
-            Post Post1 = new Post(
-                                DateTime.Now, 
-                                "Post Title", 
-                                "Post Content", 
-                                666);
+            //Post Post1 = new Post(
+            //                    DateTime.Now, 
+            //                    "Post Title", 
+            //                    "Post Content", 
+            //                    666);
 
-            Post1.AddComment(comment1);
-            Post1.AddComment(comment2);
+            //Post1.AddComment(comment1);
+            //Post1.AddComment(comment2);
 
-            //Console.WriteLine(Post1.Title);
-            //Console.WriteLine();
-            //Console.WriteLine(Post1.Likes + " - " + Post1.Moment);
-            //Console.WriteLine();
-            //Console.WriteLine("Comments:");
-            //Console.WriteLine(Post1.Comments);
-            
-            Console.WriteLine(Post1);
+            ////Console.WriteLine(Post1.Title);
+            ////Console.WriteLine();
+            ////Console.WriteLine(Post1.Likes + " - " + Post1.Moment);
+            ////Console.WriteLine();
+            ////Console.WriteLine("Comments:");
+            ////Console.WriteLine(Post1.Comments);
 
+            //Console.WriteLine(Post1);
 
             #endregion
 
@@ -83,7 +177,6 @@ namespace CSharpCompleto
             //Console.WriteLine("Income for " + monthAndYear + ": " + worker.Income(year, month).ToString("F2", CultureInfo.InvariantCulture));
             #endregion
 
-
             #region EnumIntro
             //Order order = new Order
             //{
@@ -101,6 +194,8 @@ namespace CSharpCompleto
             //Console.WriteLine(os);
             #endregion
 
+            #endregion
+
             ///////////////
             #region Intro
 
@@ -110,7 +205,6 @@ namespace CSharpCompleto
             //matriz.MontaMatriz();
 
             //matriz.MatrizEx();
-
 
             #endregion
 
