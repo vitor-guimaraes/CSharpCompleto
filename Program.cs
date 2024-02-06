@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using System.Globalization;
 using CSharpCompleto.Entities;
@@ -14,22 +15,65 @@ namespace CSharpCompleto
         {
             #region Polimorfismo
 
+            #region Ex2Abstract
+
+            List<Taxpayer> taxpayers = new List<Taxpayer>();
+
+            Taxpayer taxpayer1 = new TaxpayerIndividual("Mongo", 50000, 2000);
+            Taxpayer taxpayer2 = new TaxpayerIndividual("Songo", 20000, 0);
+            Taxpayer taxpayer3 = new TaxpayerCompany("MongoInc", 400000, 25);
+            Taxpayer taxpayer4 = new TaxpayerCompany("SongoInc", 400000, 8);
+
+            taxpayers.Add(taxpayer1);
+            taxpayers.Add(taxpayer2);
+            taxpayers.Add(taxpayer3);
+            taxpayers.Add(taxpayer4);
+            double totalTax = 0;
+
+            foreach (Taxpayer taxpayer in taxpayers)
+            {
+                Console.Write(taxpayer.Name + ": ");
+                Console.WriteLine(taxpayer.Tax());
+                totalTax += taxpayer.Tax();
+            }
+
+            Console.WriteLine("Total Tax: " + totalTax);
+
+            #endregion
+
+            #region Ex1Abstract
+
+            //List<Shape> shapes = new List<Shape>();
+
+            //Circle circle = new Circle(5);
+            //shapes.Add(circle);
+
+            //Rectangle rectangle = new Rectangle(5, 5);
+            //shapes.Add(rectangle);
+
+            //foreach (Shape shape in shapes)
+            //{
+            //    Console.WriteLine(shape.Area());
+            //}
+
+            #endregion
+
             #region Ex2Polimorfismo
 
-            Product product1 = new ImportedProduct("Tablet", 260.00, 20.00);
-            Product product2 = new Product("Notebook", 110.00);
-            Product product3 = new UsedProduct("Iphone", 400.00, DateTime.Now);
+            //Product product1 = new ImportedProduct("Tablet", 260.00, 20.00);
+            //Product product2 = new Product("Notebook", 110.00);
+            //Product product3 = new UsedProduct("Iphone", 400.00, DateTime.Now);
 
-            List<Product> products = new List<Product>();
+            //List<Product> products = new List<Product>();
 
-            products.Add(product1);
-            products.Add(product2);
-            products.Add(product3);
+            //products.Add(product1);
+            //products.Add(product2);
+            //products.Add(product3);
 
-            foreach (Product p in products)
-            {
-                Console.WriteLine(p.PriceTag());
-            }
+            //foreach (Product p in products)
+            //{
+            //    Console.WriteLine(p.PriceTag());
+            //}
 
             #endregion
 
