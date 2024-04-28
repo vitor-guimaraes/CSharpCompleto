@@ -13,31 +13,63 @@ namespace CSharpCompleto
     {
         static void Main(string[] args)
         {
+
+            #region Exception
+
+            #region ExceptionEx1
+
+            Reservation reservation = new Reservation(5, DateTime.Now, DateTime.Now.AddDays(5));
+
+            Console.WriteLine("Room #: " + reservation.RoomNumber);
+            Console.WriteLine("Check In: " + reservation.CheckIn);
+            Console.WriteLine("Check Out: " + reservation.CheckOut);
+            Console.WriteLine("Duration: " + reservation.Duration());
+
+            try
+            {
+                reservation.updateDates(DateTime.Now, DateTime.Now.AddDays(8));
+                Console.WriteLine("Room #: " + reservation.RoomNumber);
+                Console.WriteLine("Check In: " + reservation.CheckIn);
+                Console.WriteLine("Check Out: " + reservation.CheckOut);
+                Console.WriteLine("Duration: " + reservation.Duration());
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+
+            #endregion
+
+            #endregion
+
+            ///////////////
             #region Polimorfismo
 
             #region Ex2Abstract
 
-            List<Taxpayer> taxpayers = new List<Taxpayer>();
+            //List<Taxpayer> taxpayers = new List<Taxpayer>();
 
-            Taxpayer taxpayer1 = new TaxpayerIndividual("Mongo", 50000, 2000);
-            Taxpayer taxpayer2 = new TaxpayerIndividual("Songo", 20000, 0);
-            Taxpayer taxpayer3 = new TaxpayerCompany("MongoInc", 400000, 25);
-            Taxpayer taxpayer4 = new TaxpayerCompany("SongoInc", 400000, 8);
+            //Taxpayer taxpayer1 = new TaxpayerIndividual("Mongo", 50000, 2000);
+            //Taxpayer taxpayer2 = new TaxpayerIndividual("Songo", 20000, 0);
+            //Taxpayer taxpayer3 = new TaxpayerCompany("MongoInc", 400000, 25);
+            //Taxpayer taxpayer4 = new TaxpayerCompany("SongoInc", 400000, 8);
 
-            taxpayers.Add(taxpayer1);
-            taxpayers.Add(taxpayer2);
-            taxpayers.Add(taxpayer3);
-            taxpayers.Add(taxpayer4);
-            double totalTax = 0;
+            //taxpayers.Add(taxpayer1);
+            //taxpayers.Add(taxpayer2);
+            //taxpayers.Add(taxpayer3);
+            //taxpayers.Add(taxpayer4);
+            //double totalTax = 0;
 
-            foreach (Taxpayer taxpayer in taxpayers)
-            {
-                Console.Write(taxpayer.Name + ": ");
-                Console.WriteLine(taxpayer.Tax());
-                totalTax += taxpayer.Tax();
-            }
+            //foreach (Taxpayer taxpayer in taxpayers)
+            //{
+            //    Console.Write(taxpayer.Name + ": ");
+            //    Console.WriteLine(taxpayer.Tax());
+            //    totalTax += taxpayer.Tax();
+            //}
 
-            Console.WriteLine("Total Tax: " + totalTax);
+            //Console.WriteLine("Total Tax: " + totalTax);
 
             #endregion
 
