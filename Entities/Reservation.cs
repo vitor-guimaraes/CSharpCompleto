@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpCompleto.Entities.Exception;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,10 @@ namespace CSharpCompleto.Entities
     {
         public Reservation(int roomNumber, DateTime checkIn, DateTime checkOut)
         {
+            if (checkIn > checkOut)
+            {
+                throw new DomainException("Checkin date must be earlier than checkout date");
+            }
             RoomNumber = roomNumber;
             CheckIn = checkIn;
             CheckOut = checkOut;
@@ -31,6 +36,15 @@ namespace CSharpCompleto.Entities
 
         public void updateDates(DateTime checkIn, DateTime checkOut)
         {
+            if (checkIn < DateTime.Now || checkOut < DateTime.Now)
+            {
+                throw new DomainException("Reservation dates must be future dates");
+            }
+            else if (checkIn > checkOut)
+            {
+                throw new DomainException("Checkin date must be earlier than checkout date");
+            }
+
             CheckIn = checkIn;
             CheckOut = checkOut;
         }

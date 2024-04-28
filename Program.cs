@@ -5,6 +5,7 @@ using System.Diagnostics.Contracts;
 using System.Globalization;
 using CSharpCompleto.Entities;
 using CSharpCompleto.Entities.Enums;
+using CSharpCompleto.Entities.Exception;
 using CSharpCompleto.Intro;
 
 namespace CSharpCompleto
@@ -18,25 +19,31 @@ namespace CSharpCompleto
 
             #region ExceptionEx1
 
-            Reservation reservation = new Reservation(5, DateTime.Now, DateTime.Now.AddDays(5));
-
-            Console.WriteLine("Room #: " + reservation.RoomNumber);
-            Console.WriteLine("Check In: " + reservation.CheckIn);
-            Console.WriteLine("Check Out: " + reservation.CheckOut);
-            Console.WriteLine("Duration: " + reservation.Duration());
-
             try
             {
+                Reservation reservation = new Reservation(5, DateTime.Now, DateTime.Now.AddDays(5));
+
+                Console.WriteLine("Room #: " + reservation.RoomNumber);
+                Console.WriteLine("Check In: " + reservation.CheckIn);
+                Console.WriteLine("Check Out: " + reservation.CheckOut);
+                Console.WriteLine("Duration: " + reservation.Duration());
+
+                reservation.updateDates(DateTime.Now.AddDays(1), DateTime.Now.AddDays(8));
+                Console.WriteLine("Room #: " + reservation.RoomNumber);
+                Console.WriteLine("Check In: " + reservation.CheckIn);
+                Console.WriteLine("Check Out: " + reservation.CheckOut);
+                Console.WriteLine("Duration: " + reservation.Duration());
+
                 reservation.updateDates(DateTime.Now, DateTime.Now.AddDays(8));
                 Console.WriteLine("Room #: " + reservation.RoomNumber);
                 Console.WriteLine("Check In: " + reservation.CheckIn);
                 Console.WriteLine("Check Out: " + reservation.CheckOut);
                 Console.WriteLine("Duration: " + reservation.Duration());
             }
-            catch (Exception ex)
+            catch (DomainException ex)
             {
 
-                throw;
+                Console.WriteLine("Error in reservation: " + ex.Message);
             }
 
 
