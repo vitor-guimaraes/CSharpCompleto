@@ -17,34 +17,69 @@ namespace CSharpCompleto
 
             #region Exception
 
-            #region ExceptionEx1
+            #region ExceptionEx2
+
+            Account account = new Account(666, "Louis Cypher", 666.66, 200);
+
+            Console.WriteLine("Account number: " + account.Number);
+            Console.WriteLine("Account holder: " + account.Holder);
+            Console.WriteLine("Account balance: " + account.Balance);
+            Console.WriteLine("Account withdrawl limit: " + account.WithdrawlLimit);
 
             try
             {
-                Reservation reservation = new Reservation(5, DateTime.Now, DateTime.Now.AddDays(5));
+                account.Deposit(400);
+                Console.WriteLine("Account number: " + account.Number);
+                Console.WriteLine("Account holder: " + account.Holder);
+                Console.WriteLine("Account balance: " + account.Balance);
+                Console.WriteLine("Account withdrawl limit: " + account.WithdrawlLimit);
 
-                Console.WriteLine("Room #: " + reservation.RoomNumber);
-                Console.WriteLine("Check In: " + reservation.CheckIn);
-                Console.WriteLine("Check Out: " + reservation.CheckOut);
-                Console.WriteLine("Duration: " + reservation.Duration());
+                account.Withdrawl(200);
+                Console.WriteLine("Account number: " + account.Number);
+                Console.WriteLine("Account holder: " + account.Holder);
+                Console.WriteLine("Account balance: " + account.Balance);
+                Console.WriteLine("Account withdrawl limit: " + account.WithdrawlLimit);
 
-                reservation.updateDates(DateTime.Now.AddDays(1), DateTime.Now.AddDays(8));
-                Console.WriteLine("Room #: " + reservation.RoomNumber);
-                Console.WriteLine("Check In: " + reservation.CheckIn);
-                Console.WriteLine("Check Out: " + reservation.CheckOut);
-                Console.WriteLine("Duration: " + reservation.Duration());
-
-                reservation.updateDates(DateTime.Now, DateTime.Now.AddDays(8));
-                Console.WriteLine("Room #: " + reservation.RoomNumber);
-                Console.WriteLine("Check In: " + reservation.CheckIn);
-                Console.WriteLine("Check Out: " + reservation.CheckOut);
-                Console.WriteLine("Duration: " + reservation.Duration());
+                account.Withdrawl(5000);
+                Console.WriteLine("Account number: " + account.Number);
+                Console.WriteLine("Account holder: " + account.Holder);
+                Console.WriteLine("Account balance: " + account.Balance);
+                Console.WriteLine("Account withdrawl limit: " + account.WithdrawlLimit);
             }
             catch (DomainException ex)
             {
-
-                Console.WriteLine("Error in reservation: " + ex.Message);
+                Console.WriteLine("Withdrawl limit: " + ex.Message);
             }
+
+            #endregion
+
+            #region ExceptionEx1
+
+            //try
+            //{
+            //    Reservation reservation = new Reservation(5, DateTime.Now, DateTime.Now.AddDays(5));
+
+            //    Console.WriteLine("Room #: " + reservation.RoomNumber);
+            //    Console.WriteLine("Check In: " + reservation.CheckIn);
+            //    Console.WriteLine("Check Out: " + reservation.CheckOut);
+            //    Console.WriteLine("Duration: " + reservation.Duration());
+
+            //    reservation.updateDates(DateTime.Now.AddDays(1), DateTime.Now.AddDays(8));
+            //    Console.WriteLine("Room #: " + reservation.RoomNumber);
+            //    Console.WriteLine("Check In: " + reservation.CheckIn);
+            //    Console.WriteLine("Check Out: " + reservation.CheckOut);
+            //    Console.WriteLine("Duration: " + reservation.Duration());
+
+            //    reservation.updateDates(DateTime.Now, DateTime.Now.AddDays(8));
+            //    Console.WriteLine("Room #: " + reservation.RoomNumber);
+            //    Console.WriteLine("Check In: " + reservation.CheckIn);
+            //    Console.WriteLine("Check Out: " + reservation.CheckOut);
+            //    Console.WriteLine("Duration: " + reservation.Duration());
+            //}
+            //catch (DomainException ex)
+            //{
+            //    Console.WriteLine("Error in reservation: " + ex.Message);
+            //}
 
 
             #endregion
