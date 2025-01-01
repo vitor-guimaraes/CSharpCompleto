@@ -24,31 +24,37 @@ namespace CSharpCompleto
             Console.WriteLine("Account number: " + account.Number);
             Console.WriteLine("Account holder: " + account.Holder);
             Console.WriteLine("Account balance: " + account.Balance);
-            Console.WriteLine("Account withdrawl limit: " + account.WithdrawlLimit);
+            Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
+            Console.WriteLine();
 
             try
             {
                 account.Deposit(400);
                 Console.WriteLine("Account number: " + account.Number);
                 Console.WriteLine("Account holder: " + account.Holder);
+                Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
                 Console.WriteLine("Account balance: " + account.Balance);
-                Console.WriteLine("Account withdrawl limit: " + account.WithdrawlLimit);
+                Console.WriteLine();
 
-                account.Withdrawl(200);
+                account.Withdraw(180);
                 Console.WriteLine("Account number: " + account.Number);
                 Console.WriteLine("Account holder: " + account.Holder);
+                Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
                 Console.WriteLine("Account balance: " + account.Balance);
-                Console.WriteLine("Account withdrawl limit: " + account.WithdrawlLimit);
+                Console.WriteLine();
 
-                account.Withdrawl(5000);
+
+                account.Withdraw(5000);
                 Console.WriteLine("Account number: " + account.Number);
                 Console.WriteLine("Account holder: " + account.Holder);
+                Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
                 Console.WriteLine("Account balance: " + account.Balance);
-                Console.WriteLine("Account withdrawl limit: " + account.WithdrawlLimit);
+                Console.WriteLine();
+
             }
             catch (DomainException ex)
             {
-                Console.WriteLine("Withdrawl limit: " + ex.Message);
+                Console.WriteLine("Withdraw limit: " + ex.Message);
             }
 
             #endregion

@@ -12,7 +12,7 @@ namespace CSharpCompleto.Entities
         public int Number { get; set; } 
         public string Holder { get; set; }
         public double Balance { get; set; }
-        public double WithdrawlLimit { get; set; }
+        public double WithdrawLimit { get; set; }
 
         public Account()
         {
@@ -23,7 +23,7 @@ namespace CSharpCompleto.Entities
             Number = number;
             Holder = holder;
             Balance = balance;
-            WithdrawlLimit = withdrawlLimit;
+            WithdrawLimit = withdrawlLimit;
         }
 
         public void Deposit(double amount)
@@ -31,18 +31,18 @@ namespace CSharpCompleto.Entities
             Balance += amount;
         }
 
-        public void Withdrawl(double amount)
+        public void Withdraw(double amount)
         {
-            if (amount < WithdrawlLimit)
+            if (amount < WithdrawLimit && amount < Balance)
             {
                 Balance -= amount;
             }
-            else if (Balance < amount)
+            else if (amount < WithdrawLimit && amount > Balance)
             {
                 throw new DomainException("Insufficient funds");
             }
             else
-                throw new DomainException("Exceeded withdrawl limit");
+                throw new DomainException("Exceeded withdraw limit");
         }
     }
 }
