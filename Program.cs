@@ -19,43 +19,43 @@ namespace CSharpCompleto
 
             #region ExceptionEx2
 
-            Account account = new Account(666, "Louis Cypher", 666.66, 200);
+            //Account account = new Account(666, "Louis Cypher", 666.66, 200);
 
-            Console.WriteLine("Account number: " + account.Number);
-            Console.WriteLine("Account holder: " + account.Holder);
-            Console.WriteLine("Account balance: " + account.Balance);
-            Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
-            Console.WriteLine();
+            //Console.WriteLine("Account number: " + account.Number);
+            //Console.WriteLine("Account holder: " + account.Holder);
+            //Console.WriteLine("Account balance: " + account.Balance);
+            //Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
+            //Console.WriteLine();
 
-            try
-            {
-                account.Deposit(400);
-                Console.WriteLine("Account number: " + account.Number);
-                Console.WriteLine("Account holder: " + account.Holder);
-                Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
-                Console.WriteLine("Account balance: " + account.Balance);
-                Console.WriteLine();
+            //try
+            //{
+            //    account.Deposit(400);
+            //    Console.WriteLine("Account number: " + account.Number);
+            //    Console.WriteLine("Account holder: " + account.Holder);
+            //    Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
+            //    Console.WriteLine("Account balance: " + account.Balance);
+            //    Console.WriteLine();
 
-                account.Withdraw(180);
-                Console.WriteLine("Account number: " + account.Number);
-                Console.WriteLine("Account holder: " + account.Holder);
-                Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
-                Console.WriteLine("Account balance: " + account.Balance);
-                Console.WriteLine();
+            //    account.Withdraw(180);
+            //    Console.WriteLine("Account number: " + account.Number);
+            //    Console.WriteLine("Account holder: " + account.Holder);
+            //    Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
+            //    Console.WriteLine("Account balance: " + account.Balance);
+            //    Console.WriteLine();
 
 
-                account.Withdraw(5000);
-                Console.WriteLine("Account number: " + account.Number);
-                Console.WriteLine("Account holder: " + account.Holder);
-                Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
-                Console.WriteLine("Account balance: " + account.Balance);
-                Console.WriteLine();
+            //    account.Withdraw(5000);
+            //    Console.WriteLine("Account number: " + account.Number);
+            //    Console.WriteLine("Account holder: " + account.Holder);
+            //    Console.WriteLine("Account withdrawl limit: " + account.WithdrawLimit);
+            //    Console.WriteLine("Account balance: " + account.Balance);
+            //    Console.WriteLine();
 
-            }
-            catch (DomainException ex)
-            {
-                Console.WriteLine("Withdraw limit: " + ex.Message);
-            }
+            //}
+            //catch (DomainException ex)
+            //{
+            //    Console.WriteLine("Withdraw limit: " + ex.Message);
+            //}
 
             #endregion
 
