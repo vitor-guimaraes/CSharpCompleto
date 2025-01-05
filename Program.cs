@@ -14,6 +14,33 @@ namespace CSharpCompleto
     {
         static void Main(string[] args)
         {
+            #region Interfaces
+
+            CarRental carRental = new CarRental();
+
+            Console.WriteLine("Enter rental data... ");
+            Console.WriteLine("Enter pickup date: ");
+            carRental.PickupDate = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Enter return date: ");
+            carRental.ReturnDate = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Enter price per hour: ");
+            carRental.PricePerHour = double.Parse(Console.ReadLine());
+            Console.WriteLine("Enter price per day: ");
+            carRental.PricePerDay = double.Parse(Console.ReadLine());
+
+            double BasePay = carRental.BasePayment();
+            double TaxPay = carRental.Tax(BasePay);
+            double TotalPay = carRental.TotalPayment();
+
+            Console.WriteLine("Base Payment: " + BasePay);
+            Console.WriteLine("Tax Payment: " + TaxPay);
+            Console.WriteLine("Total Payment: " + TotalPay);
+
+
+
+
+            #endregion
+
 
             #region Exception
 
