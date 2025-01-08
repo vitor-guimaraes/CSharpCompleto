@@ -7,6 +7,7 @@ using CSharpCompleto.Entities;
 using CSharpCompleto.Entities.Enums;
 using CSharpCompleto.Entities.Exception;
 using CSharpCompleto.Intro;
+using CSharpCompleto.Services;
 
 namespace CSharpCompleto
 {
@@ -16,27 +17,26 @@ namespace CSharpCompleto
         {
             #region Interfaces
 
-            CarRental carRental = new CarRental();
-
             Console.WriteLine("Enter rental data... ");
+            Console.WriteLine("Enter car model: ");
+            string model = Console.ReadLine();
             Console.WriteLine("Enter pickup date: ");
-            carRental.PickupDate = DateTime.Parse(Console.ReadLine());
+            DateTime pickupDate = DateTime.Parse(Console.ReadLine());
             Console.WriteLine("Enter return date: ");
-            carRental.ReturnDate = DateTime.Parse(Console.ReadLine());
+            DateTime returnDate = DateTime.Parse(Console.ReadLine());
             Console.WriteLine("Enter price per hour: ");
-            carRental.PricePerHour = double.Parse(Console.ReadLine());
+            double pricePerHour = double.Parse(Console.ReadLine());
             Console.WriteLine("Enter price per day: ");
-            carRental.PricePerDay = double.Parse(Console.ReadLine());
+            double pricePerDay = double.Parse(Console.ReadLine());
 
-            double BasePay = carRental.BasePayment();
-            double TaxPay = carRental.Tax(BasePay);
-            double TotalPay = carRental.TotalPayment();
+            CarRental carRental = new CarRental(new Vehicle(model), pickupDate, returnDate);
 
-            Console.WriteLine("Base Payment: " + BasePay);
-            Console.WriteLine("Tax Payment: " + TaxPay);
-            Console.WriteLine("Total Payment: " + TotalPay);
+            RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxService());
 
+            rentalService.ProcessInvoice(carRental);
 
+            Console.WriteLine("INVOICE:");
+            Console.WriteLine(carRental.Invoice);
 
 
             #endregion
