@@ -8,6 +8,7 @@ using CSharpCompleto.Entities.Enums;
 using CSharpCompleto.Entities.Exception;
 using CSharpCompleto.Intro;
 using CSharpCompleto.Services;
+using Contract = CSharpCompleto.Entities.Contract;
 
 namespace CSharpCompleto
 {
@@ -17,26 +18,55 @@ namespace CSharpCompleto
         {
             #region Interfaces
 
-            Console.WriteLine("Enter rental data... ");
-            Console.WriteLine("Enter car model: ");
-            string model = Console.ReadLine();
-            Console.WriteLine("Enter pickup date: ");
-            DateTime pickupDate = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("Enter return date: ");
-            DateTime returnDate = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("Enter price per hour: ");
-            double pricePerHour = double.Parse(Console.ReadLine());
-            Console.WriteLine("Enter price per day: ");
-            double pricePerDay = double.Parse(Console.ReadLine());
+            #region Ex2Interefaces
 
-            CarRental carRental = new CarRental(new Vehicle(model), pickupDate, returnDate);
+            Console.WriteLine("Enter contract data: ");
+            Console.WriteLine("Contract number: ");
+            int contractNumber = int.Parse(Console.ReadLine());
+            Console.WriteLine("Contract date: ");
+            DateTime contractDate = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Enter contract value: ");
+            double contractValue = double.Parse(Console.ReadLine());
+            Console.WriteLine("Number of Installments: ");
+            int numberOfInstallments = int.Parse(Console.ReadLine());
 
-            RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxService());
+            Contract contract = new Contract(contractNumber, contractDate, contractValue);
 
-            rentalService.ProcessInvoice(carRental);
+            ContractService contractService = new ContractService(new PaypalService());
+            contractService.ProcessContract(contract, numberOfInstallments);
 
-            Console.WriteLine("INVOICE:");
-            Console.WriteLine(carRental.Invoice);
+            Console.WriteLine("Installment value: ");
+            foreach (Installment installment in contract.Installments)
+            {
+                Console.WriteLine(installment.Amount);
+            }
+
+            #endregion
+
+            #region Ex1Interefaces
+
+            //Console.WriteLine("Enter rental data... ");
+            //Console.WriteLine("Enter car model: ");
+            //string model = Console.ReadLine();
+            //Console.WriteLine("Enter pickup date: ");
+            //DateTime pickupDate = DateTime.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter return date: ");
+            //DateTime returnDate = DateTime.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter price per hour: ");
+            //double pricePerHour = double.Parse(Console.ReadLine());
+            //Console.WriteLine("Enter price per day: ");
+            //double pricePerDay = double.Parse(Console.ReadLine());
+
+            //CarRental carRental = new CarRental(new Vehicle(model), pickupDate, returnDate);
+
+            //RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxService());
+
+            //rentalService.ProcessInvoice(carRental);
+
+            //Console.WriteLine("INVOICE:");
+            //Console.WriteLine(carRental.Invoice);
+
+            #endregion
 
 
             #endregion
